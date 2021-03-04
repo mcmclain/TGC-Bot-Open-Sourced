@@ -6,7 +6,7 @@ exports.run = async (client, message, args) => {
       description:
         `**Here are my commands:**\n` +
         `\`${process.env.prefix}help\` - Shows this list of commands.\n` +
-        `\`${process.env.prefix}bounties\` - Show's Someone's bounties\n`,
+        `\`${process.env.prefix}power\` - Show's Someone's power\n`,
       author: {
         icon_url: ``,
         name: `Help | Celestial Bot`,
