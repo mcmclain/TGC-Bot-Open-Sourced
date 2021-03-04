@@ -11,8 +11,8 @@ require('dotenv').config();
 
 const checkmsg = async (rblxuser, userid, load) => {
     //TID Rank
-    let mainrank = await roblox.getRankNameInGroup(7608896, userid);
-    let mainrankid = await roblox.getRankInGroup(7608896, userid);
+    let mainrank = await roblox.getRankNameInGroup(6769220, userid);
+    let mainrankid = await roblox.getRankInGroup(6769220, userid);
     //DSO Rank
     let dsorank = await roblox.getRankNameInGroup(process.env.dsoId, userid);
     let dsorankid = await roblox.getRankInGroup(process.env.dsoId, userid);
@@ -23,7 +23,7 @@ const checkmsg = async (rblxuser, userid, load) => {
     let info = await roblox.getPlayerInfo(userid);
     let joinDate = info.joinDate;
 
-if(mainrankid == 0) mainrank = `Not Cool{Not Part of TID}`;
+if(mainrankid == 0) mainrank = `Non-military Personel`;
 
 if(dsorankid == 0 && mowrankid == 0) {
     await load.edit({embed: {
@@ -46,7 +46,7 @@ if(dsorankid == 0 && mowrankid == 0) {
           value: `**Divisions**`
       },
       {
-          name: `The Imperial Demonation`,
+          name: `[TGC] The Galactic Coruscant`,
           value: `${mainrank} (${mainrankid})`,
           inline: true
       }
@@ -63,7 +63,7 @@ if(dsorankid == 0 && mowrankid == 0) {
   },
   timestamp: new Date(),
   author: {
-      icon_url: `https://t2.rbxcdn.com/3a7462e4031b06642cc346b34bb9b356`, //Stating that this is the TID Bot and what Command its for. 
+      icon_url: `https://images-ext-1.discordapp.net/external/j7GUyG-9HGPeywJsNJawfIESo7UUSPsdtJUfJAJYz-I/https/t1.rbxcdn.com/60385337fbe7c1b86cae44a2d0d569eb`, //Shttps://t2.rbxcdn.com/3a7462e4031b06642cc346b34bb9b356tating that this is the TID Bot and what Command its for. 
       name: `Check | TID Bot`,
   }
 
@@ -91,12 +91,12 @@ if(dsorankid >= 1 && mowrankid == 0) {
           value: `**Divisions**`
       },
       {
-          name: `The Imperial Demonation`,
+          name: `[TGC] The Galactic Coruscant`,
           value: `${mainrank} (${mainrankid})`,
           inline: true
       },
       {
-          name: `Delta Special Operations`,
+          name: `[TGC] 501st Legion`,
           value: `${dsorank} (${dsorankid})`,
           inline: true
 
@@ -108,13 +108,13 @@ if(dsorankid >= 1 && mowrankid == 0) {
   },
   footer: {
       icon_url: `https://images-ext-2.discordapp.net/external/pJ52xAFYjWy4YDMPcJwgrjvgkm2qyCMJ1Av6ir260io/https/0q0.eu/img/success.png`,//it making sure the command author knows it suceess, there are some dumb onez out there
-      text: `Success | the Imperial Demonation`,
+      text: `Success | TGC`,
 
   },
   timestamp: new Date(),
   author: {
-      icon_url: `https://t2.rbxcdn.com/3a7462e4031b06642cc346b34bb9b356`, //Stating that this is the TID Bot and what Command its for. 
-      name: `Check | TID Bot`,
+      icon_url: `https://images-ext-1.discordapp.net/external/j7GUyG-9HGPeywJsNJawfIESo7UUSPsdtJUfJAJYz-I/https/t1.rbxcdn.com/60385337fbe7c1b86cae44a2d0d569eb`, //Stating that this is the TID Bot and what Command its for. 
+      name: `Check | TGC Bot`,
   }
 
       }}) 
@@ -140,12 +140,12 @@ if(dsorankid == 0 && mowrankid >= 1) {
           value: `**Divisions**`
       },
       {
-          name: `The Imperial Demonation`,
+          name: `[TGC] The Galactic Coruscant`,
           value: `${mainrank} (${mainrankid})`,
           inline: true
       },
       {
-          name: `Ministry of War`,
+          name: `[TGC] Republic Intelligence`,
           value: `${mowrank} (${mowrankid})`,
           inline: true
 
@@ -162,7 +162,7 @@ if(dsorankid == 0 && mowrankid >= 1) {
   },
   timestamp: new Date(),
   author: {
-      icon_url: `https://t2.rbxcdn.com/3a7462e4031b06642cc346b34bb9b356`, //Stating that this is the TID Bot and what Command its for. 
+      icon_url: `https://images-ext-1.discordapp.net/external/j7GUyG-9HGPeywJsNJawfIESo7UUSPsdtJUfJAJYz-I/https/t1.rbxcdn.com/60385337fbe7c1b86cae44a2d0d569eb`, //Stating that this is the TID Bot and what Command its for. 
       name: `Check | TID Bot`,
   }
 
@@ -189,17 +189,17 @@ if(dsorankid >= 1 && mowrankid >= 1) {
           value: `**Divisions**`
       },
       {
-          name: `The Imperial Demonation`,
+          name: `[TGC] The Galactic Coruscant`,
           value: `${mainrank} (${mainrankid})`,
           inline: true
       },
       {
-          name: `Ministry of War`,
+          name: `[TGC] Republic Intelligence`,
           value: `${mowrank} (${mowrankid})`,
           inline: true
       },
       {
-        name: `Delta Special Operations`,
+        name: `[TGC] 501st Legion`,
         value: `${dsorank} (${dsorankid})`,
         inline: true
     }
@@ -210,13 +210,13 @@ if(dsorankid >= 1 && mowrankid >= 1) {
   },
   footer: {
       icon_url: `https://images-ext-2.discordapp.net/external/pJ52xAFYjWy4YDMPcJwgrjvgkm2qyCMJ1Av6ir260io/https/0q0.eu/img/success.png`,//it making sure the command author knows it suceess, there are some dumb onez out there
-      text: `Success | the Imperial Demonation`,
+      text: `Success | TGC`,
 
   },
   timestamp: new Date(),
   author: {
-      icon_url: `https://t2.rbxcdn.com/3a7462e4031b06642cc346b34bb9b356`, //Stating that this is the TID Bot and what Command its for. 
-      name: `Check | TID Bot`,
+      icon_url: `https://images-ext-1.discordapp.net/external/j7GUyG-9HGPeywJsNJawfIESo7UUSPsdtJUfJAJYz-I/https/t1.rbxcdn.com/60385337fbe7c1b86cae44a2d0d569eb`, //Stating that this is the TID Bot and what Command its for. 
+      name: `Check | TGC Bot`,
   }
 
       }}) 
