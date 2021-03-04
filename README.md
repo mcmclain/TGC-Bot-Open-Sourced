@@ -6,6 +6,7 @@ A discord.js bot for a small fun group that I have been working on for a while. 
   2. Help
   3. Opower
   4. Announce
+  5. Check
 
 # Join the discord (https://discord.gg/hca8UEfw)
 
