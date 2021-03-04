@@ -1,4 +1,5 @@
 // Must go to modules/checkmsg.js
+// This is from 3/4/2020
 
 const Discord = require('discord.js');
 const client = new Discord.Client();
