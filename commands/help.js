@@ -14,7 +14,7 @@ exports.run = async (client, message, args) => {
       timestamp: new Date(),
       footer: {
         icon_url: `https://media.discordapp.net/attachments/811041417945546764/813460259624321104/unknown.png`,
-        text: `Success | Clan Celestial`,
+        text: `Success | TGC`,
       },
     },
   });
