@@ -14,15 +14,15 @@ exports.run = async (client, message, args) => {
   const load = await message.channel.send({
     embed: {
       color: 9240450,
-      description: `Loading... Please Wait a Couple Seconds\n This may take upto 15 seconds, please be patient.,`,
+      description: `Loading... Please Wait a Couple Seconds\n This may take up to 15 seconds, please be patient. ,`,
       footer: {
         icon_url: `http://www.leadershipsaratoga.org/themes/leadership-saratoga-responsive/images/spinner.png`,
-        text: `Loading | Clan Celestial`,
+        text: `Loading | TGC`,
       },
       timestamp: new Date(),
       author: {
-        icon_url: `https://media.discordapp.net/attachments/811041417945546764/813460259624321104/unknown.png`,
-        name: `bounties | Celestial Bot`,
+        icon_url: ``,
+        name: `power | TGC Bot`,
       },
     },
   });
@@ -40,8 +40,8 @@ exports.run = async (client, message, args) => {
           let rblxuser = JSON.parse(data).robloxUsername;
           let userid = JSON.parse(data).robloxId;
 
-          let bountiesmsg = async () => {
-            let bounties = await db.fetch(`bounties_${rblxuser}`);
+          let powermsg = async () => {
+            let power = await db.fetch(`power_${rblxuser}`);
             let rankid = await roblox.getRankInGroup(
               process.env.groupId,
               userid
@@ -50,7 +50,7 @@ exports.run = async (client, message, args) => {
               process.env.groupId,
               userid
             );
-            if (bounties == null) bounties = 0;
+            if (power == null) power = 0;
             if (rank == "Guest") rank = "Non-Military Personnel";
             await load.edit({
               embed: {
@@ -63,8 +63,8 @@ exports.run = async (client, message, args) => {
                   },
                   {
                     inline: true,
-                    name: "**bounties**",
-                    value: `${bounties}`,
+                    name: "**power**",
+                    value: `${power}`,
                   },
                   {
                     inline: true,
@@ -77,17 +77,17 @@ exports.run = async (client, message, args) => {
                 },
                 footer: {
                   icon_url: `https://images-ext-2.discordapp.net/external/pJ52xAFYjWy4YDMPcJwgrjvgkm2qyCMJ1Av6ir260io/https/0q0.eu/img/success.png`,
-                  text: `Success | Clan Celestial`,
+                  text: `Success | TGC`,
                 },
                 timestamp: new Date(),
                 author: {
-                  icon_url: `https://media.discordapp.net/attachments/811041417945546764/813460259624321104/unknown.png`,
-                  name: `bounties | Celestial Bot`,
+                  icon_url: `https://images-ext-1.discordapp.net/external/j7GUyG-9HGPeywJsNJawfIESo7UUSPsdtJUfJAJYz-I/https/t1.rbxcdn.com/60385337fbe7c1b86cae44a2d0d569eb`,
+                  name: `power | TGC Bot`,
                 },
               },
             });
           };
-          bountiesmsg();
+          powermsg();
         });
       })
       .on("error", (err) => {
@@ -98,10 +98,10 @@ exports.run = async (client, message, args) => {
     let userid = await roblox.getIdFromUsername(`${args[0]}`);
     let rblxuser = await roblox.getUsernameFromId(`${userid}`);
 
-    let bounties = db.fetch(`bounties_${rblxuser}`);
+    let power = db.fetch(`power_${rblxuser}`);
     let rankid = await roblox.getRankInGroup(process.env.groupId, userid);
     let rank = await roblox.getRankNameInGroup(process.env.groupId, userid);
-    if (bounties == null) bounties = 0;
+    if (power == null) power = 0;
     if (rank == "Guest") rank = "Non-Military Personnel";
     await load.edit({
       embed: {
@@ -114,8 +114,8 @@ exports.run = async (client, message, args) => {
           },
           {
             inline: true,
-            name: "**bounties**",
-            value: `${bounties}`,
+            name: "**power**",
+            value: `${power}`,
           },
           {
             inline: true,
@@ -128,12 +128,12 @@ exports.run = async (client, message, args) => {
         },
         footer: {
           icon_url: `https://images-ext-2.discordapp.net/external/pJ52xAFYjWy4YDMPcJwgrjvgkm2qyCMJ1Av6ir260io/https/0q0.eu/img/success.png`,
-          text: `Success | Clan Celestial`,
+          text: `Success | TGC`,
         },
         timestamp: new Date(),
         author: {
-          icon_url: `https://media.discordapp.net/attachments/811041417945546764/813460259624321104/unknown.png`,
-          name: `bounties | Celestial Bot`,
+          icon_url: `https://images-ext-1.discordapp.net/external/j7GUyG-9HGPeywJsNJawfIESo7UUSPsdtJUfJAJYz-I/https/t1.rbxcdn.com/60385337fbe7c1b86cae44a2d0d569eb`,
+          name: `power | TGC Bot`,
         },
       },
     });
@@ -141,7 +141,7 @@ exports.run = async (client, message, args) => {
   if (args[1] == `add` && amt) {
     if (
       !message.member.roles.cache.some((role) =>
-        ["Points Adding Permission"].includes(role.name)
+        ["Officer"].includes(role.name)
       )
     ) {
       return load.edit({
@@ -151,34 +151,34 @@ exports.run = async (client, message, args) => {
           description: `You are not a Commissioned Officer.`,
           footer: {
             icon_url: `https://images-ext-1.discordapp.net/external/LGvBIsduPKMp-ls0F7DfDuAX9orwqpdMSAAdkvErJG0/https/0q0.eu/img/error.png`,
-            text: `Error | Clan Celestial`,
+            text: `Error | TGC`,
           },
           timestamp: new Date(),
           author: {
-            icon_url: `https://media.discordapp.net/attachments/811041417945546764/813460259624321104/unknown.png`,
-            name: `bounties | Celestial Bot`,
+            icon_url: `https://images-ext-1.discordapp.net/external/j7GUyG-9HGPeywJsNJawfIESo7UUSPsdtJUfJAJYz-I/https/t1.rbxcdn.com/60385337fbe7c1b86cae44a2d0d569eb`,
+            name: `Power | TGC Bot`,
           },
         },
       });
     } else {
       let userid = await roblox.getIdFromUsername(`${args[0]}`);
       let rblxuser = await roblox.getUsernameFromId(`${userid}`);
-      let bounties = db.fetch(`bounties_${rblxuser}`);
-      if (bounties == null) power = 0;
-      db.set(`bounties_${rblxuser}`, Number(bounties) + Number(amt));
+      let power = db.fetch(`power_${rblxuser}`);
+      if (power == null) power = 0;
+      db.set(`power_${rblxuser}`, Number(power) + Number(amt));
 
       return load.edit({
         embed: {
           color: 9240450,
-          description: `Successfully added **${amt}** bounties to ${rblxuser}`,
+          description: `Successfully added **${amt}** power to ${rblxuser}`,
           footer: {
             icon_url: `https://images-ext-2.discordapp.net/external/pJ52xAFYjWy4YDMPcJwgrjvgkm2qyCMJ1Av6ir260io/https/0q0.eu/img/success.png`,
-            text: `Success | Clan Celestial`,
+            text: `Success | TGC`,
           },
           timestamp: new Date(),
           author: {
-            icon_url: `https://media.discordapp.net/attachments/811041417945546764/813460259624321104/unknown.png`,
-            name: `bounties | Celestial Bot`,
+            icon_url: `https://images-ext-1.discordapp.net/external/j7GUyG-9HGPeywJsNJawfIESo7UUSPsdtJUfJAJYz-I/https/t1.rbxcdn.com/60385337fbe7c1b86cae44a2d0d569eb`,
+            name: `power | TGCBot`,
           },
         },
       });
@@ -187,7 +187,7 @@ exports.run = async (client, message, args) => {
   if (args[1] == `remove` && amt) {
     if (
       !message.member.roles.cache.some((role) =>
-        ["Points Adding Permission"].includes(role.name)
+        ["Officer"].includes(role.name)
       )
     ) {
       return load.edit({
@@ -197,34 +197,34 @@ exports.run = async (client, message, args) => {
           description: `You are not a Commissioned Officer.`,
           footer: {
             icon_url: `https://images-ext-1.discordapp.net/external/LGvBIsduPKMp-ls0F7DfDuAX9orwqpdMSAAdkvErJG0/https/0q0.eu/img/error.png`,
-            text: `Error | Clan Celestial`,
+            text: `Error | TGC`,
           },
           timestamp: new Date(),
           author: {
-            icon_url: `https://media.discordapp.net/attachments/811041417945546764/813460259624321104/unknown.png`,
-            name: `bounties | Celestial Bot`,
+            icon_url: `https://images-ext-1.discordapp.net/external/j7GUyG-9HGPeywJsNJawfIESo7UUSPsdtJUfJAJYz-I/https/t1.rbxcdn.com/60385337fbe7c1b86cae44a2d0d569eb`,
+            name: `Power | TGC Bot`,
           },
         },
       });
     } else {
       let userid = await roblox.getIdFromUsername(`${args[0]}`);
       let rblxuser = await roblox.getUsernameFromId(`${userid}`);
-      let bounties = db.fetch(`bounties_${rblxuser}`);
-      if (bounties == null) power = 0;
-      db.set(`bounties_${rblxuser}`, Number(bounties) - Number(amt));
+      let power = db.fetch(`power_${rblxuser}`);
+      if (power == null) power = 0;
+      db.set(`power_${rblxuser}`, Number(power) - Number(amt));
 
       return load.edit({
         embed: {
           color: 9240450,
-          description: `Successfully removed **${amt}** bounties from ${rblxuser}`,
+          description: `Successfully removed **${amt}** power from ${rblxuser}`,
           footer: {
             icon_url: `https://images-ext-2.discordapp.net/external/pJ52xAFYjWy4YDMPcJwgrjvgkm2qyCMJ1Av6ir260io/https/0q0.eu/img/success.png`,
-            text: `Success | Clan Celestial`,
+            text: `Success | TGC`,
           },
           timestamp: new Date(),
           author: {
-            icon_url: `https://media.discordapp.net/attachments/811041417945546764/813460259624321104/unknown.png`,
-            name: `bounties | Celestial Bot`,
+            icon_url: `https://images-ext-1.discordapp.net/external/j7GUyG-9HGPeywJsNJawfIESo7UUSPsdtJUfJAJYz-I/https/t1.rbxcdn.com/60385337fbe7c1b86cae44a2d0d569eb`,
+            name: `power | TGC Bot`,
           },
         },
       });
@@ -233,7 +233,7 @@ exports.run = async (client, message, args) => {
   if (args[1] == `change` && amt) {
     if (
       !message.member.roles.cache.some((role) =>
-        ["Points Adding Permission"].includes(role.name)
+        ["Officer"].includes(role.name)
       )
     ) {
       return load.edit({
@@ -243,37 +243,38 @@ exports.run = async (client, message, args) => {
           description: `You are not a Commissioned Officer.`,
           footer: {
             icon_url: `https://images-ext-1.discordapp.net/external/LGvBIsduPKMp-ls0F7DfDuAX9orwqpdMSAAdkvErJG0/https/0q0.eu/img/error.png`,
-            text: `Error | Clan Celestial`,
+            text: `Error | TGC`,
           },
           timestamp: new Date(),
           author: {
-            icon_url: `https://media.discordapp.net/attachments/811041417945546764/813460259624321104/unknown.png`,
-            name: `bounties | Celestial Bot`,
+            icon_url: `https://images-ext-1.discordapp.net/external/j7GUyG-9HGPeywJsNJawfIESo7UUSPsdtJUfJAJYz-I/https/t1.rbxcdn.com/60385337fbe7c1b86cae44a2d0d569eb`,
+            name: `Power | TCG Bot`,
           },
         },
       });
     } else {
       let userid = await roblox.getIdFromUsername(`${args[0]}`);
       let rblxuser = await roblox.getUsernameFromId(`${userid}`);
-      let bounties = db.fetch(`bounties_${rblxuser}`);
-      if (bounties == null) power = 0;
-      db.set(`bounties_${rblxuser}`, Number(amt));
+      let power = db.fetch(`power_${rblxuser}`);
+      if (power == null) power = 0;
+      db.set(`power_${rblxuser}`, Number(amt));
 
       return load.edit({
         embed: {
           color: 9240450,
-          description: `Successfully changed ${rblxuser}'s bounties from ${bounties} to ${amt}`,
+          description: `Successfully changed ${rblxuser}'s power from ${power} to ${amt}`,
           footer: {
             icon_url: `https://images-ext-2.discordapp.net/external/pJ52xAFYjWy4YDMPcJwgrjvgkm2qyCMJ1Av6ir260io/https/0q0.eu/img/success.png`,
-            text: `Success | Clan Celestial`,
+            text: `Success | The BETA Faction`,
           },
           timestamp: new Date(),
           author: {
-            icon_url: `https://media.discordapp.net/attachments/811041417945546764/813460259624321104/unknown.png`,
-            name: `bounties | Celestial Bott`,
+            icon_url: `https://images-ext-1.discordapp.net/external/j7GUyG-9HGPeywJsNJawfIESo7UUSPsdtJUfJAJYz-I/https/t1.rbxcdn.com/60385337fbe7c1b86cae44a2d0d569eb`,
+            name: `power | The BETA Bot`,
           },
         },
       });
     }
   }
 };
+
